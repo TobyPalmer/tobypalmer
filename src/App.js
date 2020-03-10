@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import FronteersContainer from './components/Fronteers/FronteersContainer';
+// import Functional from './components/Fronteers/Functional';
+// import Lea from './components/Fronteers/Lea';
+import Courses from './components/courses/Courses';
+import Course from './components/courses/Course';
+import EngagementPartyContainer from './components/engagementParty/EngagementPartyContainer';
+import { Router, Route } from "react-router";
+import { createBrowserHistory } from "history";
+import './App.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const history = createBrowserHistory();
+
+const App = () => (
+  <Router history={history}>
+    <header className="App-header">
+      <Route path="/" component={EngagementPartyContainer} />
+      <Route path="/courses" component={Courses} />
+      <Route path="/course/:code" component={Course} />
+    </header>
+  </Router>
+)
 
 export default App;
